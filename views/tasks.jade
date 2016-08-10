@@ -1,0 +1,19 @@
+extend layout
+
+block body2
+	h1= title
+	p you have #{ tasks.length } tasks created
+	p
+		a.completed(href="/tasks") Done All
+	form(action="/tasks", method="POST")
+		div
+			label Task Name
+			input(type="text",name="name")
+		div
+			input(type="submit",value="Add Task")
+	ul
+		each task, i in tasks
+			li
+				a.tasks(href="/tasks?id=#{ task.id }") remove
+				p #{ task.id } - #{ task.name }
+				a.completed(href="/tasks?id=#{ task.id }") Done

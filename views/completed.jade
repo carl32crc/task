@@ -1,0 +1,7 @@
+extend layout
+
+block body2
+	h1= title
+	ul.completed
+		each comp, i in completed
+			li #{ comp.id } - #{ comp.name }
